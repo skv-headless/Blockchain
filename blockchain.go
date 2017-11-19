@@ -79,11 +79,8 @@ func ValidProof(last_proof int, proof int) bool {
 	guess_hash := hex.EncodeToString(sum[:])
 
 	if guess_hash[0:4] == "0000" {
-		fmt.Printf("Found: %s\n", guess_hash)
 		return true
 	}
-
-	fmt.Printf("Not: %s\n", guess_hash)
 
 	return false
 }
@@ -105,8 +102,8 @@ func main() {
 	blockchain.New_transaction("1", "2", 1)
 
 	proof := blockchain.Proof_of_work(100)
-	fmt.Printf("%+v\n", proof)
 
+	fmt.Printf("%+v\n", proof)
 	fmt.Printf("%+v\n", blockchain)
 	fmt.Printf("%s\n", Hash(blockchain.chain[0]))
 }
